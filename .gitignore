@@ -46,6 +46,7 @@ coverage.xml
 .ipynb_checkpoints
 
 # Local Development Configuration
+.envconfig
 .env
 .local
 

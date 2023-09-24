@@ -1,5 +1,5 @@
 """ ----------------------------------------------------------------------------------------------- """
-""" ---- Backend Entry File - Flask Application --------------------------------------------------- """
+""" ---- Backend Entry File - Flask Server Application -------------------------------------------- """
 
 from flask import Flask, jsonify, send_from_directory
 from dotenv import load_dotenv
@@ -16,18 +16,14 @@ load_dotenv()
 app = Flask(__name__)
 
 # Set CORS policy.
-CORS(app, resources={r"/api/*": {"origins": os.environ.get('CLIENT_APP_URL')}})
+CORS(app, resources={r"/api/*": {"origins": os.environ.get('CLIENT_URL')}})
 
 
 
 # --- Global Variables ------------------------------------ #
 
-DEFAULT_DEBUG_MODE = True
-IS_DEBUG_MODE = bool(os.environ.get('DEBUG_MODE', DEFAULT_DEBUG_MODE))
-
-DEFAULT_PORT = 8000
-PORT_NUMBER = int(os.environ.get('PORT', DEFAULT_PORT))
-
+IS_DEBUG_MODE = bool(os.environ.get('IS_DEBUG_MODE', True))
+PORT_NUMBER = int(os.environ.get('DEFAULT_SERVER_PORT', 8000))
 CLIENT_APP_PATH = os.path.join(os.path.dirname(__file__), '..', 'client', 'dist')
 
 
@@ -83,7 +79,6 @@ def check_ads_on_channel_12():
 
 if __name__ == '__main__':
     # Run the app.
-    # app.run(debug=IS_DEBUG_MODE, host='::1', port=PORT_NUMBER)
     app.run(debug=IS_DEBUG_MODE, port=PORT_NUMBER)
 
 
