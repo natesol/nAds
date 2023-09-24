@@ -1,0 +1,67 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime cache
+.npm
+.pnpm
+.pnpm-store
+.cache
+.parcel-cache
+*.cache
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+
+# Dependencies
+*.local
+node_modules
+*/node_modules
+jspm_packages
+*/jspm_packages
+web_modules
+*/web_modules
+*/.pnp
+*.pnp.js
+*/package-lock.json
+package-lock.json
+*/pnpm-lock.yaml
+pnpm-lock.yaml
+
+# Production artifacts
+build
+dist
+dist-ssr
+
+# Environment variable files (dotenv)
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
