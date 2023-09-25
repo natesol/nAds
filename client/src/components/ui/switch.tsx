@@ -29,7 +29,7 @@
 import * as React from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils';
 
 type SwitchProps = {
     onLabel?: string;

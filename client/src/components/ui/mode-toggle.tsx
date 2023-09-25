@@ -1,6 +1,5 @@
-// tslint:disable-next-line: no-submodule-imports
-
 import { Moon, Sun } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -9,11 +8,10 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Switch } from './switch';
 
 import { useTheme } from '@/hooks/useTheme';
 
-type ModeToggleVariant = 'dropdown' | 'icon' | 'switch';
+type ModeToggleVariant = 'dropdown' | 'icon';
 
 interface ModeToggleProps {
     variant: ModeToggleVariant;
@@ -23,7 +21,7 @@ export const ModeToggle = ({ variant }: ModeToggleProps) => {
     const { theme, setTheme } = useTheme();
 
     const handleToggle = () => {
-        if (variant === 'icon' || variant === 'switch') {
+        if (variant === 'icon') {
             setTheme(theme === 'dark' ? 'light' : 'dark');
         }
     };
@@ -47,14 +45,21 @@ export const ModeToggle = ({ variant }: ModeToggleProps) => {
         );
     } else if (variant === 'icon') {
         return (
-            <Button variant='outline' size='icon' onClick={handleToggle}>
-                <Sun className='h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:-rotate-0 dark:scale-100' />
-                <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:rotate-90 dark:scale-0' />
-                <span className='sr-only'>Toggle theme</span>
-            </Button>
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger>
+                        <Button variant='outline' size='icon' onClick={handleToggle}>
+                            <Sun className='h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:-rotate-0 dark:scale-100' />
+                            <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:rotate-90 dark:scale-0' />
+                            <span className='sr-only'>Toggle theme</span>
+                        </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Toggle theme to {theme === 'dark' ? 'light' : 'dark'}</p>
+                    </TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
         );
-    } else if (variant === 'switch') {
-        return <Switch checked={theme === 'dark'} onChange={handleToggle} onLabel='on' offLabel='off' />;
     }
 
     return null; // Return null for unsupported variants

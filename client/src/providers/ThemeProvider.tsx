@@ -14,7 +14,7 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-    theme: 'system',
+    theme: 'light',
     setTheme: () => null,
 };
 
@@ -22,7 +22,7 @@ export const ThemeProviderContext = createContext<ThemeProviderState>(initialSta
 
 export const ThemeProvider = ({
     children,
-    defaultTheme = 'system',
+    defaultTheme = initialState.theme,
     storageKey = 'vite-ui-theme',
     ...props
 }: ThemeProviderProps) => {
@@ -37,12 +37,10 @@ export const ThemeProvider = ({
 
         if (theme === 'system') {
             const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
             root.classList.add(systemTheme);
-            return;
+        } else {
+            root.classList.add(theme);
         }
-
-        root.classList.add(theme);
     }, [theme]);
 
     const value = {

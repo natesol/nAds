@@ -10,9 +10,15 @@
         "cssVariables": true
     },
     "aliases": {
-        "pages": "@/pages",
-        "hooks": "@/hooks",
+        "assets": "@/assets",
         "components": "@/components",
-        "utils": "@/lib/utils"
+        "hooks": "@/hooks",
+        "pages": "@/pages",
+        "providers": "@/providers",
+        "routes": "@/routes",
+        "utils": "@/utils",
+        "styles": "@/styles",
+        "types": "@/utils/types",
+        "interfaces": "@/utils/interfaces"
     }
 }

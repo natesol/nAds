@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useLocalStorage = <T>(key: string, initialValue: T): [T, (value: T) => void] => {
+export const useLocalStorage = <T>(key: string, initialValue?: T): [T, (value: T) => void] => {
     const storedValue = JSON.parse(localStorage.getItem(key) || JSON.stringify(initialValue));
 
     const [value, setValue] = useState<T>(storedValue);

@@ -47,34 +47,3 @@ export default defineConfig({
         },
     },
 });
-
-// console.log('VITE_DEFAULT_CLIENT_PORT:', import.meta.env.VITE_DEFAULT_CLIENT_PORT);
-// console.log('VITE_DEFAULT_HOST:', import.meta.env.VITE_DEFAULT_HOST);
-// console.log('VITE_SERVER_URL:', import.meta.env.VITE_SERVER_URL);
-// console.log('PORT:', PORT);
-// console.log('MODE:', import.meta.env.MODE);
-// console.log('BASE_URL:', import.meta.env.BASE_URL);
-// console.log('PROD:', import.meta.env.PROD);
-// console.log('DEV:', import.meta.env.DEV);
-// console.log('SSR:', import.meta.env.SSR);
-
-// import { defineConfig } from 'vite';
-// import react from '@vitejs/plugin-react-swc';
-// import svgr from 'vite-plugin-svgr';
-
-// const PORT = parseInt(import.meta.env.VITE_DEFAULT_CLIENT_PORT);
-// const HOST = import.meta.env.VITE_DEFAULT_HOST;
-
-// export default defineConfig({
-//     plugins: [react(), svgr()],
-//     server: {
-//         host: HOST,
-//         port: PORT,
-//         proxy: {
-//             '/api': {
-//                 target: SERVER_URL,
-//                 changeOrigin: true,
-//             },
-//         },
-//     },
-// });

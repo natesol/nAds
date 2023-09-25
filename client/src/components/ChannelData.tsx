@@ -4,7 +4,7 @@ type ChannelDataProps = {
     channelName: string;
 };
 
-const ChannelData = ({ channelName }: ChannelDataProps) => {
+export const ChannelData = ({ channelName }: ChannelDataProps) => {
     const apiUrl = `/api/${channelName}`;
     const { data, isLoading, error } = useFetch(apiUrl);
 
